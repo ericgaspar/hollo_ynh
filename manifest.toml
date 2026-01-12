@@ -58,7 +58,7 @@ ram.runtime = "50M"
 
     [resources.sources.main]
     url = "https://github.com/fedify-dev/hollo/archive/refs/tags/0.6.19.tar.gz"
-    sha256 = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    sha256 = "b8290ee214b6e10ee9a583842806e01580e06e589e663a0dacee4a08a6d97b1e"
 
     autoupdate.strategy = "latest_github_tag"
 
