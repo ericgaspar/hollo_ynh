@@ -4,17 +4,13 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
 # INITIALIZE AND STORE SETTINGS
 #=================================================
 
-# If you need to, you can define custom settings
-# (or remove this section entirely if not relevant for you)
-foo="bar"
-ynh_app_setting_set --key=foo --value=$foo
+key=$(ynh_string_random --length=32)
 
 #=================================================
 # INSTALL DEPENDENCIES
@@ -36,7 +32,7 @@ ynh_setup_source --dest_dir="$install_dir"
 #=================================================
 ynh_script_progression "Adding $app's configuration files..."
 
-ynh_config_add --template="some_config_file" --destination="$install_dir/some_config_file"
+ynh_config_add --template=".env.sample" --destination="$install_dir/.env"
 
 #=================================================
 # SYSTEM CONFIGURATION
@@ -50,6 +46,15 @@ ynh_config_add_nginx
 ynh_config_add_systemd
 
 yunohost service add "$app" --description="A short description of the app" --log="/var/log/$app/$app.log"
+
+#=================================================
+# INSTALL HOLLO
+#=================================================
+ynh_script_progression "Installing $app..."
+
+pushd $install_dir
+    ynh_hide_warnings pnpm install
+popd
 
 #=================================================
 # START SYSTEMD SERVICE
