@@ -5,7 +5,7 @@ packaging_format = 2
 id = "hollo"
 name = "Hollo"
 description.en = "Federated single-user microblogging"
-description.fr = "Expliquez en *quelques* (10~15) mots l'utilité de l'app ou ce qu'elle fait (l'objectif est de donner une idée grossière pour des utilisateurs qui naviguent dans un catalogue de 100+ apps)"
+description.fr = "Microblogging fédéré à utilisateur unique"
 
 version = "0.6.19~ynh1"
 
@@ -14,9 +14,6 @@ maintainers = ["eric_G"]
 [upstream]
 license = "AGPL-3.0"
 website = "https://docs.hollo.social/"
-demo = "https://demo.example.com"
-admindoc = "https://yunohost.org/packaging_apps"
-userdoc = "https://yunohost.org/apps"
 code = "https://github.com/fedify-dev/hollo"
 
 [integration]
@@ -69,3 +66,4 @@ ram.runtime = "50M"
 
     [resources.nodejs]
     version = "24"
+    
